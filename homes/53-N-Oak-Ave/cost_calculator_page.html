@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Does 53 N Oak Ave Actually Cost? | Joe Denk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --ink: #1a2e3b;
+    --warm: #c4703e;
+    --warm-light: #f8efe7;
+    --cream: #faf8f5;
+    --stone: #e8e4df;
+    --text: #3a3a3a;
+    --muted: #7a7a7a;
+    --white: #ffffff;
+    --green: #2d7a4f;
+    --green-light: #eef6f0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(196,112,62,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+  .hero-address {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .hero-price {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--warm);
+    padding-bottom: 0.15rem;
+  }
+  .hero-detail {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.4rem;
+  }
+
+  .content {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 1.25rem 3rem;
+  }
+
+  /* CALCULATOR */
+  .calc-section { margin-top: 1.75rem; }
+  .calc-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--stone);
+    margin-bottom: 1rem;
+  }
+
+  .slider-group {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+  .slider-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+  .slider-value {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--warm);
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--stone);
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--ink);
+    cursor: pointer;
+    border: 3px solid var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--ink);
+    cursor: pointer;
+    border: 3px solid var(--white);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+
+  /* RESULTS */
+  .results {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.25rem;
+    color: var(--white);
+  }
+  .results-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1rem;
+  }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.45rem 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .result-row:last-of-type {
+    border-bottom: none;
+  }
+  .result-label { color: rgba(255,255,255,0.7); }
+  .result-amount { font-weight: 600; }
+
+  .result-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--warm);
+  }
+  .result-total-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .result-total-amount {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--warm);
+  }
+  .result-total-suffix {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* UPFRONT */
+  .upfront-section { margin-top: 1.75rem; }
+  .upfront-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .upfront-label { font-size: 0.85rem; color: var(--text); }
+  .upfront-amount { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+
+  /* CONTEXT */
+  .context-box {
+    background: var(--warm-light);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.15rem;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .context-box strong { color: var(--ink); }
+
+  /* CONNECT */
+  .connect-section {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .connect-divider {
+    width: 50px; height: 1px;
+    background: var(--stone);
+    margin: 0 auto 1.5rem;
+  }
+  .connect-heading {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .connect-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 380px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.5;
+  }
+
+  .form-embed {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .form-embed p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .form-placeholder {
+    background: var(--cream);
+    border: 2px dashed var(--stone);
+    border-radius: 6px;
+    padding: 2rem 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .form-placeholder code {
+    display: block;
+    background: var(--white);
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    word-break: break-all;
+    color: var(--ink);
+  }
+
+  .agent-card {
+    margin-top: 2rem;
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .agent-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .agent-info { flex: 1; }
+  .agent-name { font-weight: 600; font-size: 0.95rem; }
+  .agent-title { font-size: 0.72rem; color: rgba(255,255,255,0.55); margin-top: 0.1rem; }
+  .agent-contact { font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-top: 0.3rem; }
+  .agent-contact a { color: var(--warm); text-decoration: none; }
+
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    border-top: 1px solid var(--stone);
+    margin-top: 2rem;
+  }
+
+  .disclaimer {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Real Numbers, No Surprises</div>
+  <h1>What This Home Actually Costs</h1>
+  <div class="hero-address">53 N Oak Ave #5 · Pasadena, CA 91107</div>
+  <div class="hero-price">$800,000</div>
+  <div class="hero-detail">3 Bed · 3 Bath · 1,423 SF · Gated Community · Built 2009</div>
+</div>
+
+<div class="content">
+
+  <div class="calc-section">
+    <div class="calc-title">Adjust Your Assumptions</div>
+
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Down Payment</span>
+        <span class="slider-value" id="dp-display">20% ($160,000)</span>
+      </div>
+      <input type="range" id="dp-slider" min="5" max="50" value="20" step="1">
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Interest Rate</span>
+        <span class="slider-value" id="rate-display">6.00%</span>
+      </div>
+      <input type="range" id="rate-slider" min="450" max="800" value="600" step="5">
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-header">
+        <span class="slider-label">Loan Term</span>
+        <span class="slider-value" id="term-display">30 years</span>
+      </div>
+      <input type="range" id="term-slider" min="15" max="30" value="30" step="15">
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results">
+    <div class="results-title">Estimated Monthly Breakdown</div>
+    <div class="result-row">
+      <span class="result-label">Principal + Interest</span>
+      <span class="result-amount" id="pi-amount">$3,837</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Property Tax (~1.1%)</span>
+      <span class="result-amount" id="tax-amount">$733</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Homeowner's Insurance</span>
+      <span class="result-amount" id="ins-amount">$200</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">HOA Dues</span>
+      <span class="result-amount">$400</span>
+    </div>
+    <div class="result-total">
+      <span class="result-total-label">Estimated Total</span>
+      <span><span class="result-total-amount" id="total-amount">$5,170</span> <span class="result-total-suffix">/mo</span></span>
+    </div>
+  </div>
+
+  <!-- UPFRONT -->
+  <div class="upfront-section">
+    <div class="calc-title">Upfront Costs to Budget</div>
+    <div class="upfront-card">
+      <span class="upfront-label">Down Payment</span>
+      <span class="upfront-amount" id="upfront-dp">$160,000</span>
+    </div>
+    <div class="upfront-card">
+      <span class="upfront-label">Closing Costs (est. 2–3%)</span>
+      <span class="upfront-amount">$16,000 – $24,000</span>
+    </div>
+    <div class="upfront-card">
+      <span class="upfront-label">Inspection + Appraisal</span>
+      <span class="upfront-amount">$900 – $1,400</span>
+    </div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="context-box">
+    <strong>For context:</strong> The adjacent unit in this complex (#6, 1,660 SF) sold for $945,000 in April 2025. At $800K for 1,423 SF, this unit is priced $145K below the last comparable sale in the same community. The average comp in the area is ~$778K, but most are older buildings from the 1970s–80s.
+  </div>
+
+  <p class="disclaimer">Estimates based on inputs above. Actual costs vary by lender, credit profile, and insurance. Consult a lender for precise figures.</p>
+
+  <!-- CONNECT -->
+  <div class="connect-section">
+    <div class="connect-divider"></div>
+    <div class="connect-heading">Want a personalized breakdown?</div>
+    <p class="connect-sub">I can connect you with a lender to get exact numbers based on your specific situation — no obligation, no pressure.</p>
+
+    <div class="form-embed">
+      <p>Drop your info and I'll follow up with next steps.</p>
+      <!-- REPLACE THIS BLOCK WITH YOUR GOOGLE FORM EMBED -->
+      <div class="form-placeholder">
+        <strong>📋 Google Form goes here</strong><br><br>
+        Create a Google Form with fields:<br>
+        • Name<br>
+        • Phone<br>
+        • Email<br>
+        • "Are you pre-approved?" (Yes / No / Not yet)<br>
+        • "Anything specific you're looking for?" (optional)<br><br>
+        Click Send → Embed (< >) → Copy iframe code here.
+        <code>&lt;iframe src="YOUR_GOOGLE_FORM_URL" width="100%" height="550" frameborder="0"&gt;&lt;/iframe&gt;</code>
+      </div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-avatar">JD</div>
+      <div class="agent-info">
+        <div class="agent-name">Joe Denk</div>
+        <div class="agent-title">REALTOR® | DRE #02283609</div>
+        <div class="agent-contact">
+          <a href="tel:6266999884">626-699-9884</a> · eXp Realty / SoCal Group
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 Joe Denk · eXp Realty · SoCal Group<br>
+  Estimates for informational purposes only. Not a commitment to lend.
+</div>
+
+<script>
+  const price = 800000;
+  const monthlyTax = Math.round(price * 0.011 / 12);
+  const monthlyIns = 200;
+  const hoa = 400;
+
+  const dpSlider = document.getElementById('dp-slider');
+  const rateSlider = document.getElementById('rate-slider');
+  const termSlider = document.getElementById('term-slider');
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function calculate() {
+    const dpPct = parseInt(dpSlider.value) / 100;
+    const rate = parseInt(rateSlider.value) / 10000;
+    const term = parseInt(termSlider.value);
+
+    const dp = price * dpPct;
+    const loan = price - dp;
+    const monthlyRate = rate / 12;
+    const numPayments = term * 12;
+
+    let pi;
+    if (monthlyRate === 0) {
+      pi = loan / numPayments;
+    } else {
+      pi = loan * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+    }
+
+    const total = pi + monthlyTax + monthlyIns + hoa;
+
+    document.getElementById('dp-display').textContent = dpSlider.value + '% (' + fmt(dp) + ')';
+    document.getElementById('rate-display').textContent = (rate * 100).toFixed(2) + '%';
+    document.getElementById('term-display').textContent = term + ' years';
+    document.getElementById('pi-amount').textContent = fmt(pi);
+    document.getElementById('tax-amount').textContent = fmt(monthlyTax);
+    document.getElementById('ins-amount').textContent = fmt(monthlyIns);
+    document.getElementById('total-amount').textContent = fmt(total);
+    document.getElementById('upfront-dp').textContent = fmt(dp);
+  }
+
+  dpSlider.addEventListener('input', calculate);
+  rateSlider.addEventListener('input', calculate);
+  termSlider.addEventListener('input', calculate);
+
+  calculate();
+</script>
+
+</body>
+</html>
