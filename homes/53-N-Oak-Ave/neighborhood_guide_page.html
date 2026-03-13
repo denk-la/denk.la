@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Neighborhood Guide | Oak Ave Area, Pasadena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --ink: #1a2e3b;
+    --warm: #c4703e;
+    --warm-light: #f8efe7;
+    --cream: #faf8f5;
+    --stone: #e8e4df;
+    --text: #3a3a3a;
+    --muted: #7a7a7a;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(196,112,62,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .hero-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--warm);
+    margin: 1.25rem auto;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.25rem 3rem;
+  }
+
+  /* CATEGORY */
+  .category {
+    margin-top: 2rem;
+  }
+  .category-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm);
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--stone);
+    margin-bottom: 1rem;
+  }
+
+  /* PLACE CARD */
+  .place {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .place:hover, .place:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  }
+  .place-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .place-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .place-dist {
+    font-size: 0.7rem;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .place-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+    line-height: 1.45;
+  }
+  .place-tags {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--warm-light);
+    color: var(--warm);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* COMMUTE SECTION */
+  .commute-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+  }
+  .commute-item {
+    background: var(--white);
+    border-radius: 6px;
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .commute-time {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+  .commute-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* CTA / CONTACT SECTION */
+  .connect-section {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .connect-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--stone);
+    margin: 0 auto 1.5rem;
+  }
+  .connect-heading {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .connect-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 380px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.5;
+  }
+
+  /* Google Form embed placeholder */
+  .form-embed {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .form-embed p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .form-placeholder {
+    background: var(--cream);
+    border: 2px dashed var(--stone);
+    border-radius: 6px;
+    padding: 2rem 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .form-placeholder code {
+    display: block;
+    background: var(--white);
+    padding: 0.5rem;
+    margin-top: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    word-break: break-all;
+    color: var(--ink);
+  }
+
+  /* AGENT CARD */
+  .agent-card {
+    margin-top: 2rem;
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .agent-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .agent-info { flex: 1; }
+  .agent-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .agent-title {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 0.1rem;
+  }
+  .agent-contact {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.3rem;
+  }
+  .agent-contact a {
+    color: var(--warm);
+    text-decoration: none;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    border-top: 1px solid var(--stone);
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A Local's Guide</div>
+  <h1>Your Neighborhood</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">The spots your neighbors actually go to — curated for the Oak Ave &amp; East Pasadena area.</p>
+</div>
+
+<div class="content">
+
+  <!-- COFFEE -->
+  <div class="category">
+    <div class="category-label">Coffee</div>
+    
+    <a href="https://maps.google.com/?q=Jameson+Brown+Coffee+Roasters+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Jameson Brown Coffee Roasters</div>
+        <div class="place-dist">0.4 mi</div>
+      </div>
+      <div class="place-desc">In-house roasted beans, incredible pastries. The neighborhood's go-to. Get the apple danish.</div>
+      <div class="place-tags"><span class="tag">260 Allen Ave</span><span class="tag">★ 4.7</span></div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Fika+Fika+Coffee+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Fika Fika Coffee</div>
+        <div class="place-dist">0.6 mi</div>
+      </div>
+      <div class="place-desc">Matcha specialists with a Swedish-inspired vibe. Near PCC. Great for an afternoon study session or a slow weekend morning.</div>
+      <div class="place-tags"><span class="tag">1731 E Colorado Blvd</span><span class="tag">★ 4.5</span></div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Rosebud+Coffee+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Rosebud Coffee</div>
+        <div class="place-dist">0.9 mi</div>
+      </div>
+      <div class="place-desc">Great lattes with a social impact mission — they hire and train local youth. Turns into a brewery at 3pm.</div>
+      <div class="place-tags"><span class="tag">2302 E Colorado Blvd</span><span class="tag">★ 4.4</span></div>
+    </a>
+  </div>
+
+  <!-- EAT -->
+  <div class="category">
+    <div class="category-label">Eat</div>
+
+    <a href="https://maps.google.com/?q=Fresh+Bites+Pasadena+Hill+Ave" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Fresh Bites</div>
+        <div class="place-dist">0.3 mi</div>
+      </div>
+      <div class="place-desc">Armenian and Lebanese bakery. Tiny spot, enormous flavor. The lahmajoun alone is worth the walk.</div>
+      <div class="place-tags"><span class="tag">105 N Hill Ave</span><span class="tag">★ 4.9</span></div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Smokehouse+Social+Barbecue+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Smokehouse Social Barbecue</div>
+        <div class="place-dist">1.0 mi</div>
+      </div>
+      <div class="place-desc">Legit BBQ on Colorado Blvd. Juicy brisket, smoky ribs, blue cornbread. The lunch specials are a steal.</div>
+      <div class="place-tags"><span class="tag">2363 E Colorado Blvd</span><span class="tag">★ 4.7</span></div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Foothill+Restaurant+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Foothill Restaurant</div>
+        <div class="place-dist">1.2 mi</div>
+      </div>
+      <div class="place-desc">Upscale-casual brunch and dinner. Wagyu burgers, deviled eggs, great patio. Weekend brunch fills up fast.</div>
+      <div class="place-tags"><span class="tag">2835 E Foothill Blvd</span><span class="tag">★ 4.5</span></div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Chaaste+Family+Market+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Chaaste Family Market</div>
+        <div class="place-dist">0.4 mi</div>
+      </div>
+      <div class="place-desc">Filipino grocery and hot food counter. Family-owned, incredible turon, and portions that don't mess around.</div>
+      <div class="place-tags"><span class="tag">296 Allen Ave</span><span class="tag">★ 4.7</span></div>
+    </a>
+  </div>
+
+  <!-- OUTDOORS -->
+  <div class="category">
+    <div class="category-label">Outdoors &amp; Culture</div>
+
+    <a href="https://maps.google.com/?q=Jefferson+Park+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Jefferson Park</div>
+        <div class="place-dist">0.5 mi</div>
+      </div>
+      <div class="place-desc">The neighborhood park. Playground, basketball courts, softball field. Good for kids and morning dog walks.</div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Eaton+Canyon+Nature+Center+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Eaton Canyon Nature Center</div>
+        <div class="place-dist">3.5 mi</div>
+      </div>
+      <div class="place-desc">Trailhead for the iconic waterfall hike. A weekend ritual for locals. Easy-to-moderate, family-friendly.</div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Huntington+Library+San+Marino" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">The Huntington Library &amp; Gardens</div>
+        <div class="place-dist">2.0 mi</div>
+      </div>
+      <div class="place-desc">World-class botanical gardens, art collections, and rare books. Free on the first Thursday of each month with advance reservation.</div>
+    </a>
+  </div>
+
+  <!-- ESSENTIALS -->
+  <div class="category">
+    <div class="category-label">Essentials</div>
+
+    <a href="https://maps.google.com/?q=Vons+2355+Colorado+Blvd+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Vons</div>
+        <div class="place-dist">0.5 mi</div>
+      </div>
+      <div class="place-desc">Full grocery store with deli, sushi bar, bakery, and pharmacy. One block south on Colorado Blvd.</div>
+    </a>
+
+    <a href="https://maps.google.com/?q=Ralphs+160+N+Lake+Ave+Pasadena" target="_blank" class="place">
+      <div class="place-top">
+        <div class="place-name">Ralphs</div>
+        <div class="place-dist">1.0 mi</div>
+      </div>
+      <div class="place-desc">Larger grocery option on Lake Ave. Great deli section and open until 1am.</div>
+    </a>
+  </div>
+
+  <!-- COMMUTE -->
+  <div class="category">
+    <div class="category-label">Getting Around</div>
+    <div class="commute-grid">
+      <div class="commute-item">
+        <div class="commute-time">2 min</div>
+        <div class="commute-label">210 Freeway</div>
+      </div>
+      <div class="commute-item">
+        <div class="commute-time">8 min</div>
+        <div class="commute-label">Caltech</div>
+      </div>
+      <div class="commute-item">
+        <div class="commute-time">10 min</div>
+        <div class="commute-label">Old Town Pasadena</div>
+      </div>
+      <div class="commute-item">
+        <div class="commute-time">25 min</div>
+        <div class="commute-label">Downtown LA</div>
+      </div>
+      <div class="commute-item">
+        <div class="commute-time">5 min</div>
+        <div class="commute-label">PCC</div>
+      </div>
+      <div class="commute-item">
+        <div class="commute-time">10 min</div>
+        <div class="commute-label">Gold Line Station</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONNECT -->
+  <div class="connect-section">
+    <div class="connect-divider"></div>
+    <div class="connect-heading">Want more recommendations?</div>
+    <p class="connect-sub">I cover this area every week. Drop your info below and I'll send you updates on the neighborhood, new listings, and spots worth knowing about.</p>
+
+    <div class="form-embed">
+      <p>No spam. No pressure. Just useful local info.</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlABXg6Qx00z9JwsCyW-fkVFDdZBg6rl5M2PTFRDweazcMag/viewform?embedded=true&entry.1545900709=Oak+Ave+Neighborhood+Guide" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:6px;">Loading…</iframe>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-avatar">JD</div>
+      <div class="agent-info">
+        <div class="agent-name">Joe Denk</div>
+        <div class="agent-title">REALTOR® | DRE #02283609</div>
+        <div class="agent-contact">
+          <a href="tel:6266999884">626-699-9884</a> · eXp Realty / SoCal Group
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 Joe Denk · eXp Realty · SoCal Group<br>
+  Recommendations are personal picks and not endorsements. Information believed accurate but not guaranteed.
+</div>
+
+</body>
+</html>
