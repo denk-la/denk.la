@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Home Buying Guide — Pasadena & South Pasadena | Joe Denk, REALTOR®</title>
+    <meta name="description" content="Download the free Buyer Resource Guide for Pasadena, South Pasadena, and the San Gabriel Valley. Real costs, neighborhood breakdowns, and the mistakes to avoid.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2038;
+            --navy-light: #252B45;
+            --navy-card: #2A3050;
+            --orange: #E8762A;
+            --orange-hover: #D06820;
+            --orange-light: #F0914D;
+            --white: #FFFFFF;
+            --warm-white: #F5F0EB;
+            --light-gray: #C8CDD8;
+            --mid-gray: #8890A0;
+            --subtle-bg: #FAF8F5;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'DM Serif Display', Georgia, serif;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Top accent bar ── */
+        .accent-bar {
+            height: 4px;
+            background: var(--orange);
+            width: 100%;
+        }
+
+        /* ── Hero Section ── */
+        .hero {
+            padding: 80px 24px 60px;
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 440px;
+        }
+
+        .hero-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 2.6rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--light-gray);
+            margin-bottom: 32px;
+        }
+
+        .hero-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .hero-highlights li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: var(--light-gray);
+            line-height: 1.5;
+        }
+
+        .hero-highlights li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            margin-top: 7px;
+        }
+
+        /* ── Form Card ── */
+        .form-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(232, 118, 42, 0.2);
+            border-radius: 12px;
+            padding: 40px 32px;
+            max-width: 400px;
+            justify-self: end;
+        }
+
+        .form-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+            color: var(--white);
+        }
+
+        .form-card .form-sub {
+            font-size: 0.88rem;
+            color: var(--mid-gray);
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--light-gray);
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--navy);
+            border: 1px solid rgba(200, 205, 216, 0.2);
+            border-radius: 6px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input::placeholder {
+            color: var(--mid-gray);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-group .optional-tag {
+            font-size: 0.72rem;
+            color: var(--mid-gray);
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--orange);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--orange-hover);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.985);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-privacy {
+            font-size: 0.75rem;
+            color: var(--mid-gray);
+            margin-top: 14px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ── Success state ── */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .form-success .check-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .form-success h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--orange-hover);
+        }
+
+        /* ── What's Inside Section ── */
+        .whats-inside {
+            background: var(--subtle-bg);
+            padding: 72px 24px;
+        }
+
+        .whats-inside-inner {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        .whats-inside h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .whats-inside .section-desc {
+            color: var(--mid-gray);
+            font-size: 1rem;
+            margin-bottom: 40px;
+            max-width: 560px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 28px 24px;
+            border-left: 3px solid var(--orange);
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 0.88rem;
+            color: #5A6070;
+            line-height: 1.55;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .footer-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+
+        .footer-details {
+            font-size: 0.8rem;
+            color: var(--mid-gray);
+            line-height: 1.7;
+        }
+
+        .footer-details a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        /* ── Error state ── */
+        .form-error {
+            display: none;
+            background: rgba(220, 50, 50, 0.15);
+            border: 1px solid rgba(220, 50, 50, 0.3);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            color: #FF8888;
+            margin-bottom: 16px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 48px 20px 40px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                justify-self: stretch;
+                max-width: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .form-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<!-- ═══ Hero ═══ -->
+<section class="hero">
+    <div class="hero-text">
+        <div class="hero-tag">Free Guide · Pasadena &amp; South Pasadena</div>
+        <h1>The Honest Guide to <span>Buying a Home</span> in This Market</h1>
+        <p class="hero-desc">
+            Real costs, neighborhood-by-neighborhood breakdowns, and the expensive mistakes
+            most buyers make — from a local agent who'd rather you know the truth upfront.
+        </p>
+        <ul class="hero-highlights">
+            <li>Current market snapshot with real median prices and days-on-market data</li>
+            <li>The true monthly cost beyond your mortgage — most buyers underestimate by $2K+/month</li>
+            <li>What the 2025 commission changes actually mean for you</li>
+            <li>Neighborhood deep dives: South Pasadena, Pasadena, and the SGV</li>
+            <li>The 7 most expensive buyer mistakes (and how to avoid them)</li>
+        </ul>
+    </div>
+
+    <div class="form-card">
+        <div id="formContent">
+            <h2>Get the Free Guide</h2>
+            <p class="form-sub">Enter your info below and the guide is yours instantly.</p>
+
+            <div class="form-error" id="formError"></div>
+
+            <form id="leadForm" novalidate>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First name" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last name" required autocomplete="family-name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone <span class="optional-tag">(optional)</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="(626) 555-1234" autocomplete="tel">
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">Send Me the Guide</button>
+            </form>
+            <p class="form-privacy">Your info stays with me. I don't share or sell your data.</p>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+            <div class="check-icon">✓</div>
+            <h3>You're all set.</h3>
+            <p>Click below to download your Buyer Resource Guide. If you have questions about anything in it, I'm a text or call away.</p>
+            <a href="/assets/Buyer_Resource_Guide_Joe_Denk.pdf" class="download-btn" download>Download the Guide</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ What's Inside ═══ -->
+<section class="whats-inside">
+    <div class="whats-inside-inner">
+        <h2>What's Inside</h2>
+        <p class="section-desc">A 10-page guide built for buyers who want facts, not sales pitches.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Market Snapshot</h3>
+                <p>Current median prices, days on market, and what's actually happening with inventory right now.</p>
+            </div>
+            <div class="feature-card">
+                <h3>True Cost Breakdown</h3>
+                <p>Down payment, closing costs, taxes, insurance — the full picture for a $1.2M Pasadena home.</p>
+            </div>
+            <div class="feature-card">
+                <h3>10-Step Roadmap</h3>
+                <p>Pre-approval through keys-in-hand. Every step in order, with what to watch for at each one.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Neighborhood Guide</h3>
+                <p>South Pasadena, Bungalow Heaven, Old Town, Madison Heights, the SGV — honest profiles of each.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Open House Checklist</h3>
+                <p>What to actually look at (hint: not the countertops). The red flags that cost $20K–$50K to fix.</p>
+            </div>
+            <div class="feature-card">
+                <h3>7 Costly Mistakes</h3>
+                <p>The patterns that cost buyers real money in this market — and how to avoid every one of them.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer class="site-footer">
+    <div class="footer-name">Joe Denk · REALTOR® · DRE #02283609</div>
+    <div class="footer-details">
+        eXp Realty · SoCal Group<br>
+        <a href="tel:6266999884">626-699-9884</a> · <a href="mailto:hello@denk.la">hello@denk.la</a> · <a href="https://denk.la">denk.la</a>
+    </div>
+</footer>
+
+<script>
+/*
+ * ─── Lead Capture → Google Sheets ───
+ *
+ * HOW TO SET UP:
+ * 1. Create a new Google Sheet with columns: timestamp, firstName, lastName, email, phone
+ * 2. Go to Extensions → Apps Script
+ * 3. Paste the Apps Script code from the setup-instructions.md file
+ * 4. Deploy as Web App (execute as: Me, access: Anyone)
+ * 5. Copy the Web App URL and paste it below as SCRIPT_URL
+ */
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_BMb9AdbbWBwtFmjaIy-jw1k63LWV_prtH3HOSHQ_72LBI_D1xbokmpyEmfXL63PMTw/exec';
+
+const form = document.getElementById('leadForm');
+const formContent = document.getElementById('formContent');
+const formSuccess = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
+const submitBtn = document.getElementById('submitBtn');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.style.display = 'none';
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    // Basic validation
+    if (!firstName || !lastName) {
+        showError('Please enter your full name.');
+        return;
+    }
+    if (!email || !email.includes('@') || !email.includes('.')) {
+        showError('Please enter a valid email address.');
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+        if (SCRIPT_URL) {
+            // Send to Google Sheets
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Google Apps Script requires this
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    timestamp: new Date().toISOString(),
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phone: phone || '—'
+                })
+            });
+        } else {
+            console.log('No SCRIPT_URL configured. Lead data:', { firstName, lastName, email, phone });
+        }
+
+        // Show success + download
+        formContent.style.display = 'none';
+        formSuccess.style.display = 'block';
+
+    } catch (err) {
+        console.error('Submission error:', err);
+        // Still show the download — don't punish the user for a backend hiccup
+        formContent.style.display = 'none';
+        formSuccess.style.display = 'block';
+    }
+});
+
+function showError(msg) {
+    formError.textContent = msg;
+    formError.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
